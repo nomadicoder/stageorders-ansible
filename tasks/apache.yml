@@ -1,0 +1,7 @@
+---
+- name: configure apache
+  template:
+    src: templates/httpd.conf
+    dest: /etc/httpd/conf/httpd.conf
+    mode: "u=rw,g=r,o=r"
+  notify: restart apache

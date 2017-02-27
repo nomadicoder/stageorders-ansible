@@ -1,0 +1,21 @@
+version: "1"
+defaults:
+  app_name: stageorders
+  app_user: stageorders
+services:
+  stageorders:
+    image: centos:7
+    ports:
+      - "3000:3000"
+      - "8080:80"
+    command: ["/usr/bin/dumb-init", "/bin/bash"]
+    working_dir: "/var/www/{{ app_name }}"
+    dev_overrides:
+      environment:
+        - "DEBUG=1"
+      user: {{ app_user }}
+      command: ["/usr/bin/dumb-init", '/bin/bash', '/app/ansible/sleep-loop.sh']
+      volumes:
+        - "$PWD/{{ app_name }}:/var/www/{{ app_name }}"
+        - "$PWD:/app"
+registries: {}
