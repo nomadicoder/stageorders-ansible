@@ -2,15 +2,6 @@
 - hosts: all
   gather_facts: false
   become: yes
-  vars:
-    package_manager: yum
-    nodejs_version: v0.10.4
-    ruby_version: 2.3.1
-    rails_version: 5.0.0.1
-    domainname: localhost
-    app_name: stageorders
-    app_user: stageorders
-    app_path: /var/www/{{ app_name }}
   roles:
     - role: geerlingguy.apache
   tasks:
