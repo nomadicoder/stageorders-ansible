@@ -27,5 +27,5 @@
   command: "/home/{{ app_user }}/.rbenv/bin/rbenv global {{ ruby_version }}"
 - name: install bundler
   command: "/home/{{ app_user }}/.rbenv/shims/gem install bundler --no-ri"
-- name: install rails
-  command: "/home/{{ app_user }}/.rbenv/shims/gem install rails -v {{ rails_version }} --no-ri"
+- name: install foreman
+  command: "/home/{{ app_user }}/.rbenv/shims/gem install foreman --no-ri"

@@ -1,0 +1,38 @@
+---
+- name: Clone stageorders Application
+  git:
+    repo: "{{ app_repo }}"
+    dest: "{{ app_path }}"
+    force: yes
+    version: "{{ app_version }}"
+- name: Create shared directory
+  file:
+    path: "{{ app_path }}/shared/log"
+    mode: 0755
+    state: directory
+- name: Change directory attributes
+  file:
+    path: "{{ app_path }}"
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+    mode: 0755
+    recurse: yes
+    state: directory
+- name: Install Ruby gems
+  command: "/home/{{ app_user }}/.rbenv/shims/bundle install"
+  args:
+    chdir: "{{ app_path }}"
+  remote_user: "{{ app_user }}"
+- name: Migrate database
+  command: "/home/{{ app_user }}/.rbenv/shims/rake db:migrate"
+  args:
+    chdir: "{{ app_path }}"
+  remote_user: "{{ app_user }}"
+- name: Copy puma config
+  template:
+    src: templates/puma.rb
+    dest: "{{ app_path }}/config"
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+    mode: 0755
+  remote_user: "{{ app_user }}"

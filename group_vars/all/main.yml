@@ -1,17 +1,10 @@
 ---
-<<<<<<< HEAD
-=======
-  
->>>>>>> ee3b4336f00189feaf59d1b7023d212f1bf7a7f1
 package_manager: yum
 nodejs_version: v0.10.4
-ruby_version: 2.3.1
-rails_version: 5.0.0.1
+ruby_version: 2.4.0
 domainname: localhost
 app_name: stageorders
-<<<<<<< HEAD
 app_user: stageorders
-=======
-app_user: vagrant
->>>>>>> ee3b4336f00189feaf59d1b7023d212f1bf7a7f1
 app_path: /var/www/{{ app_name }}
+app_repo: https://github.com/nomadicoder/stageorders.git
+app_version: develop

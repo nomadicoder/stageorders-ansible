@@ -12,3 +12,4 @@
     - include: tasks/app_user.yml
     - include: tasks/ruby.yml
       remote_user : "{{ app_user }}"
+    - include: tasks/stageorders.yml
