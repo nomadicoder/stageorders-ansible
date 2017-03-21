@@ -22,12 +22,12 @@
   command: "/home/{{ app_user }}/.rbenv/shims/bundle install"
   args:
     chdir: "{{ app_path }}"
-  remote_user: "{{ app_user }}"
+  become_user: "{{ app_user }}"
 - name: Migrate database
   command: "/home/{{ app_user }}/.rbenv/shims/rake db:migrate"
   args:
     chdir: "{{ app_path }}"
-  remote_user: "{{ app_user }}"
+  become_user: "{{ app_user }}"
 - name: Seed data
   template:
     src: templates/data.yml
@@ -39,4 +39,4 @@
   command: "/home/{{ app_user }}/.rbenv/shims/rake db:data:load"
   args:
     chdir: "{{ app_path }}"
-  remote_user: "{{ app_user }}"
+  become_user: "{{ app_user }}"

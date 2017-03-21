@@ -1,0 +1,2 @@
+[app]
+45.55.172.132 ansible_user=root ansible_private_key_file=~/.ssh/id_rsa
