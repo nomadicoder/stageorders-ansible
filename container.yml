@@ -14,7 +14,7 @@ services:
     dev_overrides:
       environment:
         - "DEBUG=1"
-      command: ["/usr/bin/dumb-init", '/bin/bash', '/app/ansible/sleep-loop.sh']
+#      command: ["/usr/bin/dumb-init", '/bin/bash', '/app/ansible/sleep-loop.sh']
       volumes:
         - "$PWD:/app"
 registries: {}

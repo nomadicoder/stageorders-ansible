@@ -23,7 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "ansible" do |ansible|
-      ansible.playbook = "ansible/playbook.yml"
+      ansible.playbook = "ansible/vagrant-dev.yml"
       ansible.sudo = true
       ansible.host_key_checking = false
       # ansible.verbose =  'vvvv'

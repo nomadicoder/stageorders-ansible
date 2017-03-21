@@ -1,9 +1,9 @@
 ---
 - hosts: all
-  remote_user: stageorders
+  remote_user: vagrant
   become: yes
   vars:
-    app_user: stageorders
+    app_user: vagrant
 #  roles:
 #    - role: geerlingguy.apache
   tasks:
@@ -14,4 +14,3 @@
     - include: tasks/nodejs.yml
     - include: tasks/ruby.yml
       become : "{{ app_user }}"
-    - include: tasks/stageorders.yml
